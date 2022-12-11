@@ -3,7 +3,8 @@ import tkinter as tk
 
 window = tk.Tk()
 window.title("Calc")
-
+def main():
+    calc = Calculator(window)
 
 class Calculator:
     def _init_(self, win):
@@ -34,7 +35,27 @@ class Calculator:
                 width=8,
                 fg="black",
                 command=lambda v=buttonText: self.buttonPressed(v),
+
             )
+            columnIndex += 1
+        rowIndex += 1
+    def buttonPressed(self,value):
+        print("button pressed: ", value)
+
+        if value == "Clear":
+            self.equationStr = ""
+            self.equationStrVar.set("")
+            return
+        if value == "=":
+            result =  str(eval(self.expressionStr))
+            self.expressionStr = result
+            self.equationStrVar.set(result)
+            return
+        self.expressionStr += str(value)
+        self.equationStrVar.set(self.expressionStr)
 
 
 window.mainloop()
+
+if __name__ == "__main__":
+    main()
