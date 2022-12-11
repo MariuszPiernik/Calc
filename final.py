@@ -12,5 +12,10 @@ class Calculator:
             ["0","Clear","=","/"]
 
         ]
+        self.prepareGui(win)
+    def prepareGui(self,win):
+        win.geometry("260x130")
+        self.expressionField = tk.Entry(window, textvariable=self.equationStrVar)
+        self.expressionField.grid(columnspan=4, ipadx=60)
 
 
