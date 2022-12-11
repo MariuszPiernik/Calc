@@ -1,1 +1,3 @@
-l
+def main():
+    pass
+
